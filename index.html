@@ -222,7 +222,7 @@ const TAG="legiletjuste-21";
 const amz=q=>"https://www.amazon.fr/s?k="+encodeURIComponent(q)+"&tag="+TAG;
 const dp=asin=>"https://www.amazon.fr/dp/"+asin+"?tag="+TAG;
 const amzImg=asin=>"https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN="+asin+"&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag="+TAG+"&language=fr_FR";
-function imgFail(el){el.outerHTML='<svg class="vi" aria-hidden="true"><use href="#vest"/></svg>'}
+function imgFail(el){const a=el.dataset.alt;if(a&&el.getAttribute('src')!==a){el.src=a;return}el.outerHTML='<svg class="vi" aria-hidden="true"><use href="#vest"/></svg>'}
 
 // Liens de recherche affiliés (section « Choisir selon ton usage »)
 document.querySelectorAll("[data-q]").forEach(a=>{a.href=amz(a.dataset.q);a.rel="sponsored noopener";a.target="_blank"});
@@ -242,19 +242,19 @@ const PRODUCTS=[
   who:"Marche active et premières sorties en course.",
   warn:"Poids fixe : trop léger si tu veux progresser en musculation.",
   feats:["Poids fixe de 3 kg, rempli de sable","Néoprène élastique, profil fin qui se porte sous une veste","Boucle réglable et bretelles antidérapantes","Bandes réfléchissantes"]},
- {asin:"B0G4VL2LNR",name:"Abahub 4,5 kg (10 lb)",min:4.5,max:4.5,type:"fixe",use:["marche","course"],
+ {asin:"B0G4VL2LNR",img:"images/abahub.jpg",name:"Abahub 4,5 kg (10 lb)",min:4.5,max:4.5,type:"fixe",use:["marche","course"],
   who:"Marche rapide, randonnée et course légère.",
   warn:"Poids fixe d’environ 4,5 kg, vérifie le tour de poitrine sur la fiche.",
   feats:["Poids fixe d’environ 4,5 kg","Remplissage en sable de fer, poids réparti uniformément","Fermeture éclair et tour de poitrine ajustable","Bandes réfléchissantes"]},
- {asin:"B0DNSNM17F",name:"Amazon Basics 5,4 kg",min:5.4,max:5.4,type:"fixe",use:["marche","course","renfo"],
+ {asin:"B0DNSNM17F",img:"images/amazon-basics.jpg",name:"Amazon Basics 5,4 kg",min:5.4,max:5.4,type:"fixe",use:["marche","course","renfo"],
   who:"Un premier gilet simple, sans réglage à faire.",
   warn:"Non réglable : 5,4 kg, pas un de plus ni de moins.",
   feats:["Poids fixe de 5,4 kg, sable de métal","Poche avant zippée amovible et poche arrière en filet","Bande réfléchissante"]},
- {asin:"B0DZLZ2J95",name:"Sportneer 0,9 à 8 kg",min:0.9,max:8,wl:"0,9 à 8 kg",type:"amovible",use:["marche","course","renfo"],
+ {asin:"B0DZLZ2J95",img:"images/sportneer.jpg",name:"Sportneer 0,9 à 8 kg",min:0.9,max:8,wl:"0,9 à 8 kg",type:"amovible",use:["marche","course","renfo"],
   who:"Débuter léger puis monter la charge sans racheter.",
   warn:"Vérifie la matière et la plage de tour de poitrine sur la fiche.",
   feats:["Poids réglable de 0,9 à 8 kg","Réglage rapide « 9 en 1 »","Pour homme et femme","Pensé pour la course à pied et le renforcement"]},
- {asin:"B0D5H9NFJ8",name:"PROIRON lavable, 3 à 10 kg",min:3,max:10,type:"versions",use:["marche","course","renfo"],
+ {asin:"B0D5H9NFJ8",img:"images/proiron-lavable.jpg",name:"PROIRON lavable, 3 à 10 kg",min:3,max:10,type:"versions",use:["marche","course","renfo"],
   who:"Ceux qui veulent un gilet lavable, sans sable qui fuit.",
   warn:"Choisis la version (3, 5, 8 ou 10 kg) avant de commander.",
   feats:["Versions de 3, 5, 8 ou 10 kg","Lest en fer souple (silicone) : pas de sable qui fuit","Lavable","Motifs et bandes réfléchissants"]},
@@ -262,7 +262,7 @@ const PRODUCTS=[
   who:"Renforcement et cardio avec une charge modérée.",
   warn:"8 kg d’un coup : mieux vaut déjà avoir l’habitude du gilet.",
   feats:["Poids fixe de 8 kg","Néoprène et PU","Sangles réglables sur la poitrine","Bandes réfléchissantes poitrine et dos"]},
- {asin:"B08514XD63",name:"Goplus, 5,4 à 13,6 kg",min:5.4,max:13.6,type:"versions",use:["marche","renfo"],
+ {asin:"B08514XD63",img:"images/goplus.jpg",name:"Goplus, 5,4 à 13,6 kg",min:5.4,max:13.6,type:"versions",use:["marche","renfo"],
   who:"Choisir sa charge au départ parmi quatre versions.",
   warn:"Chaque version est à poids fixe : changer de charge, c’est racheter.",
   feats:["Versions de 5,4, 7,3, 9,1 ou 13,6 kg","Sable de fer noir, néoprène de 2,5 mm","Deux boucles réglables à l’avant","Bandes réfléchissantes sur les bretelles et le dos"]},
@@ -274,7 +274,7 @@ const PRODUCTS=[
   who:"Monter en charge par paliers de 0,9 kg en musculation.",
   warn:"Le gilet de base pèse déjà 9 kg : trop lourd pour débuter.",
   feats:["Base de 9 kg, jusqu’à 14,5 kg","Six sacs de granulés de fer de 0,9 kg inclus","Néoprène respirant","Garnitures réfléchissantes"]},
- {asin:"B0D9JB44ZH",name:"Leogreen 10 ou 20 kg",min:0.5,max:20,wl:"Jusqu’à 10 ou 20 kg",type:"amovible",use:["renfo"],
+ {asin:"B0D9JB44ZH",img:"images/leogreen.jpg",name:"Leogreen 10 ou 20 kg",min:0.5,max:20,wl:"Jusqu’à 10 ou 20 kg",type:"amovible",use:["renfo"],
   who:"Musculation et endurance avec un réglage fin.",
   warn:"La version 20 kg est lourde pour un premier gilet.",
   feats:["20 sacs de sable de fer détachables","Version 10 kg : ajustement de 0,5 à 10 kg, par 0,5 kg","Trois boucles et conception élastique","Tissu Oxford 600D, bande réfléchissante"]},
@@ -317,7 +317,7 @@ const weight=p=>p.wl||(p.min===p.max?k(p.min)+" kg":k(p.min)+" à "+k(p.max)+" k
 const cta=p=>'<a class="btn" href="'+dp(p.asin)+'" target="_blank" rel="sponsored noopener">Voir le prix sur Amazon.fr</a>';
 const mini=p=>{const l=pc(p.min),w=Math.min(Math.max(pc(p.max)-l,2),100-l),a=range?pc(range[0]):0,b=range?Math.max(pc(range[1])-a,2):0;
   return '<div class="mini" aria-hidden="true"><i class="pw" style="left:'+l+'%;width:'+w+'%"></i>'+(range?'<i class="me" style="left:'+a+'%;width:'+b+'%"></i>':'')+'</div>'};
-const head=p=>'<img class="pimg" src="'+(p.img||amzImg(p.asin))+'" alt="Gilet lesté '+p.name+'" loading="lazy" onerror="imgFail(this)" onload="if(this.naturalWidth<2)imgFail(this)"><p class="kg">'+weight(p)+'</p><h3>'+p.name+'</h3><p class="tags"><span>'+TYPES[p.type]+'</span></p>'+mini(p);
+const head=p=>'<img class="pimg" src="'+(p.img||amzImg(p.asin))+'" data-alt="'+amzImg(p.asin)+'" alt="Gilet lesté '+p.name+'" loading="lazy" onerror="imgFail(this)" onload="if(this.naturalWidth<2)imgFail(this)"><p class="kg">'+weight(p)+'</p><h3>'+p.name+'</h3><p class="tags"><span>'+TYPES[p.type]+'</span></p>'+mini(p);
 
 function card(p){
   const h=hit(p);
