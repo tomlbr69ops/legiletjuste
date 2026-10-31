@@ -99,6 +99,7 @@ dd{margin:4px 0 0;color:var(--muted)}
 .prod .btn{margin-top:auto;align-self:flex-start;background:var(--cta);color:var(--cta-ink);font-weight:700}
 .prod .spacer{flex:1 1 auto;min-height:18px}
 .empty{color:var(--muted)}
+.pimg{display:block;width:100%;height:190px;object-fit:contain;background:#fff;margin:0 0 12px}
 
 .uses{max-width:700px;border-top:1px solid var(--line)}
 .use{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
@@ -220,6 +221,8 @@ footer p{max-width:70ch;margin:0 0 10px}
 const TAG="legiletjuste-21";
 const amz=q=>"https://www.amazon.fr/s?k="+encodeURIComponent(q)+"&tag="+TAG;
 const dp=asin=>"https://www.amazon.fr/dp/"+asin+"?tag="+TAG;
+   const amzImg=asin=>"https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN="+asin+"&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag="+TAG+"&language=fr_FR";
+function imgFail(el){el.outerHTML='<svg class="vi" aria-hidden="true"><use href="#vest"/></svg>'}
 
 // Liens de recherche affiliés (section « Choisir selon ton usage »)
 document.querySelectorAll("[data-q]").forEach(a=>{a.href=amz(a.dataset.q);a.rel="sponsored noopener";a.target="_blank"});
@@ -314,8 +317,7 @@ const weight=p=>p.wl||(p.min===p.max?k(p.min)+" kg":k(p.min)+" à "+k(p.max)+" k
 const cta=p=>'<a class="btn" href="'+dp(p.asin)+'" target="_blank" rel="sponsored noopener">Voir le prix sur Amazon.fr</a>';
 const mini=p=>{const l=pc(p.min),w=Math.min(Math.max(pc(p.max)-l,2),100-l),a=range?pc(range[0]):0,b=range?Math.max(pc(range[1])-a,2):0;
   return '<div class="mini" aria-hidden="true"><i class="pw" style="left:'+l+'%;width:'+w+'%"></i>'+(range?'<i class="me" style="left:'+a+'%;width:'+b+'%"></i>':'')+'</div>'};
-const head=p=>'<svg class="vi" aria-hidden="true"><use href="#vest"/></svg><p class="kg">'+weight(p)+'</p><h3>'+p.name+'</h3><p class="tags"><span>'+TYPES[p.type]+'</span></p>'+mini(p);
-
+const head=p=>'<img class="pimg" src="'+(p.img||amzImg(p.asin))+'" alt="Gilet lesté '+p.name+'" loading="lazy" onerror="imgFail(this)" onload="if(this.naturalWidth<2)imgFail(this)"><p class="kg">'+weight(p)+'</p><h3>'+p.name+'</h3><p class="tags"><span>'+TYPES[p.type]+'</span></p>'+mini(p);
 function card(p){
   const h=hit(p);
   return '<article class="prod'+(h?' hit':'')+'">'
