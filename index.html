@@ -78,6 +78,17 @@ dd{margin:4px 0 0;color:var(--muted)}
 .mini{position:relative;height:8px;background:var(--line);margin:14px 0 4px}
 .mini .pw{position:absolute;top:0;bottom:0;background:var(--ink)}
 .mini .me{position:absolute;top:-4px;bottom:-4px;border:2px solid var(--cta)}
+.prod{position:relative}
+.vi{position:absolute;top:14px;right:14px;width:52px;height:52px;--vb:var(--ink);--vs:var(--surface)}
+.prod .kg,.prod .for{padding-right:62px}
+.hero-vest{display:block;width:min(240px,60%);margin:22px 0 8px;--vb:#E8EEF2;--vs:#16243A;filter:drop-shadow(8px 8px 0 var(--accent))}
+@media (max-width:820px){.hero-vest{width:130px;margin:14px 0 0}}
+.hero.has{background:linear-gradient(color-mix(in srgb,var(--hero) 86%,transparent),color-mix(in srgb,var(--hero) 86%,transparent)),var(--img) center/cover var(--hero)}
+.uimg{flex:0 0 80px;height:80px;display:grid;place-items:center;color:var(--cta);background:var(--surface) center/cover;border:1px solid var(--line)}
+.uimg svg{width:44px;height:44px;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.uimg.has{background-image:var(--img)}
+.uimg.has svg{display:none}
+.use p{flex-basis:240px}
 .for{margin:0 0 6px;font:700 22px/1.05 "Barlow Condensed",sans-serif}
 .badge{margin:0 0 8px;font-weight:600;font-size:15px;color:var(--ink);background:color-mix(in srgb,var(--accent) 20%,var(--surface));padding:2px 8px;align-self:flex-start;border-radius:2px}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0;padding:0}
@@ -113,11 +124,13 @@ footer p{max-width:70ch;margin:0 0 10px}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vest" viewBox="0 0 64 64"><path style="fill:var(--vb,#1B2A41)" d="M20 6H26L32 16L38 6H44L52 14L48 24V58H16V24L12 14Z"/><g style="fill:var(--accent)"><rect x="19" y="31" width="11" height="10" rx="1"/><rect x="34" y="31" width="11" height="10" rx="1"/><rect x="19" y="45" width="11" height="10" rx="1"/><rect x="34" y="45" width="11" height="10" rx="1"/></g><rect x="16" y="26" width="32" height="2.5" opacity=".9" style="fill:var(--vs,#fff)"/></symbol></svg>
 <div class="stripe" aria-hidden="true"></div>
 <header><div class="wrap"><span class="logo">LE GILET JUSTE</span><nav><a href="#criteres">Critères</a><a href="#choix">Mon choix</a><a href="#catalogue">Catalogue</a><a href="#faq">Questions</a></nav></div></header>
-<div class="hero"><div class="wrap hero-in"><div class="hero-copy">
+<div class="hero" data-img="images/hero.jpg"><div class="wrap hero-in"><div class="hero-copy">
 <h1>Le bon poids, le bon gilet.</h1>
-<p class="lead">Un gilet lesté trop léger ne sert à rien, trop lourd il abîme le dos. Entre ton poids et ton usage, on te dit quelle charge viser, puis on te montre 12 modèles disponibles sur Amazon.fr, avec leurs points forts et ce qu’il faut vérifier avant d’acheter.</p></div>
+<p class="lead">Un gilet lesté trop léger ne sert à rien, trop lourd il abîme le dos. Entre ton poids et ton usage, on te dit quelle charge viser, puis on te montre 12 modèles disponibles sur Amazon.fr, avec leurs points forts et ce qu’il faut vérifier avant d’acheter.</p>
+<svg class="hero-vest" viewBox="0 0 64 64" aria-hidden="true"><use href="#vest"/></svg></div>
 
 <div class="tool">
 <h2>Quel poids pour ton gilet ?</h2>
@@ -173,9 +186,9 @@ footer p{max-width:70ch;margin:0 0 10px}
 <section id="usages">
 <h2>Choisir selon ton usage</h2>
 <div class="uses">
-<div class="use"><p><strong>Marche.</strong> Un gilet fin et respirant, de 5 à 10 % de ton poids.</p><a data-q="gilet lesté marche femme" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+marche">Voir les modèles</a></div>
-<div class="use"><p><strong>Course.</strong> Reste léger (3 à 5 %) et choisis un gilet qui ne rebondit pas.</p><a data-q="gilet lesté course à pied" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+course">Voir les modèles</a></div>
-<div class="use"><p><strong>Renforcement.</strong> Un gilet qui monte en charge, pour pompes, squats et tractions.</p><a data-q="gilet lesté musculation réglable" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+musculation">Voir les modèles</a></div>
+<div class="use"><div class="uimg" data-img="images/marche.jpg"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="12" r="5"/><path d="M32 19L30 37M31 24L22 31M31 24L40 29M30 37L22 55M30 37L40 53"/></svg></div><p><strong>Marche.</strong> Un gilet fin et respirant, de 5 à 10 % de ton poids.</p><a data-q="gilet lesté marche femme" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+marche">Voir les modèles</a></div>
+<div class="use"><div class="uimg" data-img="images/course.jpg"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="38" cy="12" r="5"/><path d="M36 19L30 36M35 24L45 30L52 23M33 25L22 28M30 36L20 45L13 56M30 36L43 45L45 57"/></svg></div><p><strong>Course.</strong> Reste léger (3 à 5 %) et choisis un gilet qui ne rebondit pas.</p><a data-q="gilet lesté course à pied" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+course">Voir les modèles</a></div>
+<div class="use"><div class="uimg" data-img="images/renfo.jpg"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 8H54"/><circle cx="32" cy="24" r="5"/><path d="M31 30L22 17V8M33 30L42 17V8M32 30V46M32 46L27 59M32 46L37 59"/></svg></div><p><strong>Renforcement.</strong> Un gilet qui monte en charge, pour pompes, squats et tractions.</p><a data-q="gilet lesté musculation réglable" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+musculation">Voir les modèles</a></div>
 </div>
 </section>
 
@@ -301,7 +314,7 @@ const weight=p=>p.wl||(p.min===p.max?k(p.min)+" kg":k(p.min)+" à "+k(p.max)+" k
 const cta=p=>'<a class="btn" href="'+dp(p.asin)+'" target="_blank" rel="sponsored noopener">Voir le prix sur Amazon.fr</a>';
 const mini=p=>{const l=pc(p.min),w=Math.min(Math.max(pc(p.max)-l,2),100-l),a=range?pc(range[0]):0,b=range?Math.max(pc(range[1])-a,2):0;
   return '<div class="mini" aria-hidden="true"><i class="pw" style="left:'+l+'%;width:'+w+'%"></i>'+(range?'<i class="me" style="left:'+a+'%;width:'+b+'%"></i>':'')+'</div>'};
-const head=p=>'<p class="kg">'+weight(p)+'</p><h3>'+p.name+'</h3><p class="tags"><span>'+TYPES[p.type]+'</span></p>'+mini(p);
+const head=p=>'<svg class="vi" aria-hidden="true"><use href="#vest"/></svg><p class="kg">'+weight(p)+'</p><h3>'+p.name+'</h3><p class="tags"><span>'+TYPES[p.type]+'</span></p>'+mini(p);
 
 function card(p){
   const h=hit(p);
@@ -348,6 +361,7 @@ if("IntersectionObserver" in window){
 }
 
 $("picks").innerHTML=PICKS.map(pick).join("");
+document.querySelectorAll("[data-img]").forEach(el=>{const i=new Image();i.onload=()=>{el.style.setProperty("--img","url('"+el.dataset.img+"')");el.classList.add("has")};i.src=el.dataset.img});
 $("kg").addEventListener("input",calc);
 $("use").addEventListener("change",()=>{filter=$("use").value;calc()});
 $("evo").addEventListener("change",render);
