@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le Gilet Juste – Quel gilet lesté choisir ?</title>
+<meta name="description" content="Guide indépendant pour choisir son gilet lesté : poids idéal, critères, modèles populaires sur Amazon.fr.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700;800&display=swap">
+<style>
+:root{--bg:#F3F5F6;--surface:#fff;--ink:#1B2A41;--muted:#56667A;--line:#CBD3DA;--accent:#E8590C;--btn:#1B2A41;--btn-ink:#fff;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101922;--surface:#182532;--ink:#E8EEF2;--muted:#9FB0C0;--line:#2C3C4D;--accent:#FF7A2E;--btn:#E8EEF2;--btn-ink:#101922;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101922;--surface:#182532;--ink:#E8EEF2;--muted:#9FB0C0;--line:#2C3C4D;--accent:#FF7A2E;--btn:#E8EEF2;--btn-ink:#101922;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 Barlow,system-ui,sans-serif}
+.stripe{height:22px;background:repeating-linear-gradient(90deg,var(--accent) 0 64px,#C9D1D8 64px 72px,var(--accent) 72px 136px)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header .wrap{display:flex;justify-content:space-between;align-items:baseline;padding-top:18px;padding-bottom:6px}
+.logo{font:800 26px/1 "Barlow Condensed",Impact,sans-serif;letter-spacing:.02em}
+header a{color:var(--ink);text-decoration:none;margin-left:18px}
+h1,h2{font-family:"Barlow Condensed",Impact,"Arial Narrow",sans-serif;font-weight:800;line-height:.95;margin:0}
+h1{font-size:clamp(46px,9vw,96px);max-width:12ch;padding:36px 0 18px}
+h2{font-size:clamp(30px,5vw,44px);margin-bottom:14px}
+.lead{max-width:56ch;color:var(--muted);margin:0 0 28px}
+.tool{background:var(--surface);border:2px solid var(--ink);padding:22px;margin-bottom:56px;max-width:640px}
+.tool h2{font-size:30px}
+.row{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+label{display:flex;flex-direction:column;font-weight:600;font-size:15px;gap:4px;flex:1 1 180px}
+input,select{font:inherit;padding:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:2px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+#out{font-size:22px;min-height:34px;margin:6px 0 12px}
+.btn{display:inline-block;background:var(--btn);color:var(--btn-ink);padding:12px 20px;text-decoration:none;font-weight:600;border-radius:2px}
+section{padding:8px 0 52px}
+dl{margin:0;max-width:700px}
+dt{font:700 24px/1.1 "Barlow Condensed",sans-serif;margin-top:20px}
+dd{margin:4px 0 0;color:var(--muted)}
+.model{border-left:8px solid var(--accent);padding:6px 0 6px 20px;max-width:700px}
+.model ul{padding-left:20px;margin:10px 0 16px}
+.uses{max-width:700px;border-top:1px solid var(--line)}
+.use{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.use p{margin:0;flex:1 1 300px}
+.use a{color:var(--ink);font-weight:600}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:15px;color:var(--muted)}
+footer p{max-width:70ch;margin:0 0 10px}
+@media (prefers-reduced-motion:no-preference){.stripe{animation:slide 1.2s ease-out}@keyframes slide{from{background-position-x:-300px}}}
+</style>
+</head>
+<body>
+<div class="stripe" aria-hidden="true"></div>
+<header><div class="wrap"><span class="logo">LE GILET JUSTE</span><nav><a href="#criteres">Critères</a><a href="#modele">Modèle</a><a href="#usages">Usages</a></nav></div></header>
+<main class="wrap">
+<h1>Le bon poids, le bon gilet.</h1>
+<p class="lead">Un gilet lesté trop léger ne sert à rien, trop lourd il abîme le dos. Entre ton poids et ton usage, on te dit quelle charge viser, puis on te montre où trouver des modèles sur Amazon.fr.</p>
+
+<div class="tool">
+<h2>Quel poids pour ton gilet ?</h2>
+<div class="row">
+<label>Ton poids (kg)<input id="kg" type="number" inputmode="decimal" min="30" max="250" value="70"></label>
+<label>Ton usage<select id="use"><option value="marche">Marche</option><option value="course">Course à pied</option><option value="renfo">Renforcement</option></select></label>
+</div>
+<div id="out" aria-live="polite"></div>
+<a id="link" class="btn" data-q="gilet lesté réglable" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9">Voir des gilets réglables</a>
+<p style="font-size:14px;color:var(--muted);margin:14px 0 0">Repères généraux, pas un avis médical. Commence par le bas de la fourchette.</p>
+</div>
+
+<section id="criteres">
+<h2>Ce qui compte vraiment</h2>
+<dl>
+<dt>Un poids réglable</dt><dd>Tu progresseras. Les gilets à lests amovibles te laissent passer de 3 à 8 kg sans racheter.</dd>
+<dt>La nature du lest</dt><dd>Le sable de fer se répartit bien et ne cogne pas. Les blocs rigides pèsent à un seul endroit.</dd>
+<dt>L’ajustement</dt><dd>Le gilet doit coller au buste sans balloter. Vérifie la plage de tour de poitrine indiquée sur la fiche.</dd>
+<dt>La visibilité</dt><dd>Des bandes réfléchissantes comptent dès que tu sors à la tombée de la nuit.</dd>
+</dl>
+</section>
+
+<section id="modele">
+<h2>Un modèle très populaire : ZELUS</h2>
+<div class="model">
+<p>Marque américaine très présente sur Amazon, souvent citée dans les gilets lestés devenus viraux sur TikTok.</p>
+<ul>
+<li>Lest en sable de fer réparti dans des poches</li>
+<li>Selon les versions, de 6 à 30 lb (environ 2,7 à 13,6 kg)</li>
+<li>Sangles à boucles réglables, bandes réfléchissantes</li>
+</ul>
+<a class="btn" data-q="ZELUS gilet lesté" href="https://www.amazon.fr/s?k=ZELUS+gilet+lest%C3%A9">Voir les gilets ZELUS sur Amazon.fr</a>
+</div>
+</section>
+
+<section id="usages">
+<h2>Choisir selon ton usage</h2>
+<div class="uses">
+<div class="use"><p><strong>Marche.</strong> Un gilet fin et respirant, de 5 à 10 % de ton poids.</p><a data-q="gilet lesté marche femme" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+marche">Voir les modèles</a></div>
+<div class="use"><p><strong>Course.</strong> Reste léger (3 à 5 %) et choisis un gilet qui ne rebondit pas.</p><a data-q="gilet lesté course à pied" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+course">Voir les modèles</a></div>
+<div class="use"><p><strong>Renforcement.</strong> Un gilet qui monte en charge, pour pompes, squats et tractions.</p><a data-q="gilet lesté musculation réglable" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+musculation">Voir les modèles</a></div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">
+<p><strong>Transparence.</strong> En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises. Cela ne change pas le prix que tu paies.</p>
+<p>Si tu as des douleurs de dos, d’articulations ou un problème cardiaque, demande l’avis d’un médecin avant d’utiliser un gilet lesté.</p>
+</div></footer>
+
+<script>
+// Remplace par ton identifiant Partenaires Amazon (ex. monsite-21)
+const TAG="VOTRE-TAG-21";
+const amz=q=>"https://www.amazon.fr/s?k="+encodeURIComponent(q)+"&tag="+TAG;
+document.querySelectorAll("[data-q]").forEach(a=>{a.href=amz(a.dataset.q);a.rel="sponsored noopener";a.target="_blank"});
+const $=id=>document.getElementById(id);
+const R={marche:[.05,.10],course:[.03,.05],renfo:[.05,.10]};
+const f=n=>String(Math.round(n*2)/2).replace(".",",");
+function calc(){
+  const w=parseFloat($("kg").value),r=R[$("use").value];
+  if(!(w>=30&&w<=250)){$("out").textContent="Entre un poids entre 30 et 250 kg.";return}
+  $("out").innerHTML="Vise <strong>"+f(w*r[0])+" à "+f(w*r[1])+" kg</strong>.";
+}
+$("kg").addEventListener("input",calc);$("use").addEventListener("change",calc);calc();
+</script>
+</body>
+</html>
