@@ -131,6 +131,18 @@ footer p{max-width:70ch;margin:0 0 10px}
 #plan:empty{display:none}.plan{list-style:none;padding:0;margin:0 0 12px;max-width:700px;border-top:1px solid var(--line)}.plan li{padding:10px 0;border-bottom:1px solid var(--line)}.plan strong{font:700 22px/1 "Barlow Condensed",sans-serif;margin-right:10px}
 .cmp{margin:12px 0 0}.tw{overflow-x:auto;margin:0 0 18px}table{border-collapse:collapse;min-width:100%;font-size:15px;background:var(--surface);color:var(--ink)}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}thead th{font:700 20px/1.1 "Barlow Condensed",sans-serif}
 footer a{color:var(--hero-ink)}
+.ast-btn{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--cta);color:var(--cta-ink);border:0;padding:12px 18px;font:700 16px Barlow,sans-serif;border-radius:2px;cursor:pointer;box-shadow:4px 4px 0 var(--ink)}
+.ast{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:40;width:min(380px,calc(100vw - 32px));max-height:min(560px,calc(100vh - 140px));display:flex;flex-direction:column;background:var(--surface);color:var(--ink);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--accent)}
+.ast[hidden]{display:none}
+.ast-h{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--hero);color:var(--hero-ink)}
+.ast-h button{background:none;border:0;color:inherit;font-size:24px;line-height:1;cursor:pointer}
+.ast-log{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.45}
+.ast-log p{margin:0;padding:8px 12px;max-width:92%;background:var(--bg);border-radius:2px}
+.ast-log .me{align-self:flex-end;background:var(--btn);color:var(--btn-ink)}
+.ast-log a{color:var(--cta);font-weight:600}
+.ast-chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 8px}.ast-chips button{font:600 14px Barlow,sans-serif;padding:6px 10px;border:1px solid var(--ink);background:var(--surface);color:var(--ink);cursor:pointer;border-radius:2px}
+.ast-in{display:flex;gap:8px;padding:0 14px 8px}.ast-in input{flex:1;min-width:0}.ast-in button{background:var(--btn);color:var(--btn-ink);border:0;padding:0 14px;font-weight:600;cursor:pointer;border-radius:2px}
+.ast-n{margin:0;padding:0 14px 10px;font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -228,6 +240,15 @@ footer a{color:var(--hero-ink)}
 <div id="bar" class="bar" hidden>
 <p id="barText"></p>
 <a class="btn" href="#catalogue">Voir les gilets</a>
+</div>
+
+<button id="astBtn" class="ast-btn" type="button" aria-expanded="false" aria-controls="ast">Une question ?</button>
+<div id="ast" class="ast" role="dialog" aria-label="Assistant du site" hidden>
+<div class="ast-h"><strong>Assistant du site</strong><button id="astX" type="button" aria-label="Fermer">×</button></div>
+<div id="astLog" class="ast-log" aria-live="polite"></div>
+<div id="astChips" class="ast-chips"></div>
+<div class="ast-in"><input id="astQ" type="text" placeholder="Pose ta question…" aria-label="Ta question" autocomplete="off"><button id="astGo" type="button">Envoyer</button></div>
+<p class="ast-n">Réponses automatiques tirées de ce site, pas un avis médical. Pour une commande, c’est l’aide d’Amazon qui fait foi.</p>
 </div>
 
 <footer><div class="wrap">
@@ -413,7 +434,43 @@ function plan(){const el=$("plan");if(!range){el.innerHTML="";return}
 try{const t=localStorage.getItem("th");if(t)document.documentElement.dataset.theme=t}catch(e){}
 $("th").addEventListener("click",()=>{const d=document.documentElement,dark=d.dataset.theme==="dark"||(!d.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);
   d.dataset.theme=dark?"light":"dark";try{localStorage.setItem("th",d.dataset.theme)}catch(e){}});
+/* Assistant du site : réponses automatiques à partir du catalogue et de la FAQ */
+const HELP="https://www.amazon.fr/gp/help/customer/display.html",ORD="https://www.amazon.fr/gp/css/order-history";
+const norm=t=>t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const ext=(u,t)=>'<a href="'+u+'" target="_blank" rel="noopener">'+t+'</a>';
+const sugg=u=>PRODUCTS.filter(p=>p.use.includes(u)).sort((a,b)=>hit(b)-hit(a)).slice(0,3).map(p=>'<a href="'+dp(p.asin)+'" target="_blank" rel="sponsored noopener">'+p.name+'</a> ('+weight(p)+')').join(", ");
+const rng=()=>range?" Avec ton poids, vise "+f(range[0])+" à "+f(range[1])+" kg.":" Le calculateur en haut de page te donne ta fourchette.";
+const KB=[
+ {k:["commande","livraison","livrer","colis","retour","rembours","paiement","payer","facture","garantie","annul","echange","suivi","sav"],a:()=>"Je ne vends rien : l’achat, la livraison, les retours et la garantie sont gérés par Amazon. Tu trouveras la réponse dans "+ext(HELP,"l’aide d’Amazon.fr")+" ou dans "+ext(ORD,"Mes commandes")+"."},
+ {k:["course","courir","running","jogging"],a:()=>"Pour courir, reste léger (3 à 5 % de ton poids) avec un gilet qui ne rebondit pas. Pistes : "+sugg("course")+"."+rng()},
+ {k:["marche","marcher","randonnee","balade"],a:()=>"Pour marcher, 5 à 10 % de ton poids suffisent. Pistes : "+sugg("marche")+"."+rng()},
+ {k:["muscu","renfo","traction","pompe","squat","crossfit"],a:()=>"Pour te renforcer, prends un gilet qui monte en charge. Pistes : "+sugg("renfo")+"."+rng()},
+ {k:["debut","premier","commenc","conseil","recommand"],a:()=>"Pour débuter, pars d’un poids bas : un gilet réglable dès moins de 1 kg ou un modèle fixe léger. Mes choix sont dans la section <a href=\"#choix\">Mon choix selon ton profil</a>."+rng()},
+ {k:["poids","kg","kilo","combien","charge"],a:()=>"Repère général : 5 à 10 % de ton poids pour marcher ou te renforcer, 3 à 5 % pour courir."+rng()},
+ {k:["taille","poitrine","trop grand","trop petit"],a:()=>"Compare ton tour de poitrine à la plage indiquée sur la fiche Amazon. Par exemple, le VEVOR 9,22 kg annonce 89 à 114 cm. Le gilet doit être serré sans gêner la respiration."},
+ {k:["lavable","laver","lavage"],a:()=>"Dans ma sélection, le "+'<a href="'+dp("B0D5H9NFJ8")+'" target="_blank" rel="sponsored noopener">PROIRON lavable</a>'+" est présenté comme lavable. Vérifie l’entretien sur la fiche."},
+ {k:["femme","fille"],a:()=>"Je n’ai pas de gilet réservé aux femmes dans ma sélection. Le Sportneer est présenté comme convenant aux hommes et aux femmes. Vérifie la plage de tour de poitrine sur la fiche."},
+ {k:["reflechi","nuit","visib","securite"],a:()=>"Plusieurs gilets de ma sélection ont des bandes réfléchissantes, utiles à la tombée de la nuit. Le détail est indiqué dans les points forts de chaque carte."},
+ {k:["prix","cher","budget","promo","black friday","soldes","reduction"],a:()=>"Je n’affiche pas de prix : ils changent souvent. Clique sur « Voir le prix sur Amazon.fr » pour voir le prix et les promotions du moment."},
+ {k:["douleur","dos","genou","enceinte","cardiaque","medecin","blessure","sante"],a:()=>"Avec une douleur, une blessure, une grossesse ou un souci cardiaque, demande l’avis d’un médecin avant d’utiliser un gilet lesté. Je ne peux pas te le dire à sa place."},
+ {k:["sable","lest","amovible","fixe","regla"],a:()=>"Un gilet à poids fixe est simple mais il faut en racheter un pour changer de charge. Avec des lests amovibles, tu montes en charge petit à petit. Filtre le "+'<a href="#catalogue">catalogue</a>'+" sur « lests amovibles »."},
+ {k:["affili","commission","gratuit","financ","sponsor","avis"],a:()=>"Ce site est financé par les liens affiliés : si tu achètes après un clic, je touche une petite commission, sans que tu paies plus cher. Je n’ai pas testé les gilets moi-même, mes notes viennent des fiches Amazon."}
+];
+function answer(q){const n=norm(q);let b=null,m=0;
+  KB.forEach(e=>{const c=e.k.filter(w=>n.includes(w)).length;if(c>m){m=c;b=e}});
+  return b?b.a():"Je n’ai pas de réponse précise à ça. Regarde le <a href=\"#catalogue\">catalogue</a> ou la <a href=\"#faq\">FAQ</a> du site. Pour une commande ou un produit précis, "+ext(HELP,"l’aide d’Amazon.fr")+" et la section questions-réponses de la fiche produit sont plus fiables."}
+function say(t,me){const p=document.createElement("p");if(me){p.className="me";p.textContent=t}else p.innerHTML=t;$("astLog").appendChild(p);$("astLog").scrollTop=1e5}
+function ask(q){q=q.trim();if(!q)return;say(q,true);say(answer(q));$("astQ").value=""}
+function astOpen(o){$("ast").hidden=!o;$("astBtn").hidden=o;$("astBtn").setAttribute("aria-expanded",String(o));
+  if(o){if(!$("astLog").children.length)say("Bonjour ! Pose-moi une question sur le choix d’un gilet lesté. Pour tout ce qui touche à une commande, je te renvoie vers l’aide d’Amazon.");$("astQ").focus()}else $("astBtn").focus()}
+$("astChips").innerHTML=["Quel poids choisir ?","Gilet pour courir","Pour débuter","Livraison et retours"].map(t=>'<button type="button">'+t+'</button>').join("");
+$("astChips").addEventListener("click",e=>{if(e.target.tagName==="BUTTON")ask(e.target.textContent)});
+$("astBtn").addEventListener("click",()=>astOpen(true));$("astX").addEventListener("click",()=>astOpen(false));
+$("astGo").addEventListener("click",()=>ask($("astQ").value));
+$("astQ").addEventListener("keydown",e=>{if(e.key==="Enter")ask($("astQ").value)});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("ast").hidden)astOpen(false)});
 calc();
 </script>
 </body>
 </html>
+   
