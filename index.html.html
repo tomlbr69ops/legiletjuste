@@ -105,7 +105,8 @@ footer p{max-width:70ch;margin:0 0 10px}
 
 <script>
 // Remplace par ton identifiant Partenaires Amazon (ex. monsite-21)
-const TAG="VOTRE-TAG-21";
+const TAG="	
+legiletjuste-21";
 const amz=q=>"https://www.amazon.fr/s?k="+encodeURIComponent(q)+"&tag="+TAG;
 document.querySelectorAll("[data-q]").forEach(a=>{a.href=amz(a.dataset.q);a.rel="sponsored noopener";a.target="_blank"});
 const $=id=>document.getElementById(id);
