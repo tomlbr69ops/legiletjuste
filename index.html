@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Le Gilet Juste – Quel gilet lesté choisir ?</title>
-<meta name="description" content="Guide indépendant pour choisir son gilet lesté : poids idéal, critères, modèles populaires sur Amazon.fr.">
+<meta name="description" content="Calcule le poids idéal de ton gilet lesté selon ton usage, puis compare 12 modèles disponibles sur Amazon.fr : poids, lests, points forts et points d’attention.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700;800&display=swap">
 <style>
@@ -13,18 +13,18 @@ color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101922;--surface:#182532;--ink:#E8EEF2;--muted:#9FB0C0;--line:#2C3C4D;--accent:#FF7A2E;--btn:#E8EEF2;--btn-ink:#101922;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#101922;--surface:#182532;--ink:#E8EEF2;--muted:#9FB0C0;--line:#2C3C4D;--accent:#FF7A2E;--btn:#E8EEF2;--btn-ink:#101922;color-scheme:dark}
 *{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 Barlow,system-ui,sans-serif}
 .stripe{height:22px;background:repeating-linear-gradient(90deg,var(--accent) 0 64px,#C9D1D8 64px 72px,var(--accent) 72px 136px)}
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header .wrap{display:flex;justify-content:space-between;align-items:baseline;padding-top:18px;padding-bottom:6px}
+header .wrap{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 0;padding-top:18px;padding-bottom:6px}
 .logo{font:800 26px/1 "Barlow Condensed",Impact,sans-serif;letter-spacing:.02em}
 header a{color:var(--ink);text-decoration:none;margin-left:18px}
-h1,h2{font-family:"Barlow Condensed",Impact,"Arial Narrow",sans-serif;font-weight:800;line-height:.95;margin:0}
+h1,h2,h3{font-family:"Barlow Condensed",Impact,"Arial Narrow",sans-serif;font-weight:800;line-height:.95;margin:0}
 h1{font-size:clamp(46px,9vw,96px);max-width:12ch;padding:36px 0 18px}
 h2{font-size:clamp(30px,5vw,44px);margin-bottom:14px}
 .lead{max-width:56ch;color:var(--muted);margin:0 0 28px}
-.tool{background:var(--surface);border:2px solid var(--ink);padding:22px;margin-bottom:56px;max-width:640px}
+.tool{background:var(--surface);border:2px solid var(--ink);padding:22px;margin-bottom:40px;max-width:640px}
 .tool h2{font-size:30px}
 .row{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
 label{display:flex;flex-direction:column;font-weight:600;font-size:15px;gap:4px;flex:1 1 180px}
@@ -36,23 +36,65 @@ section{padding:8px 0 52px}
 dl{margin:0;max-width:700px}
 dt{font:700 24px/1.1 "Barlow Condensed",sans-serif;margin-top:20px}
 dd{margin:4px 0 0;color:var(--muted)}
-.model{border-left:8px solid var(--accent);padding:6px 0 6px 20px;max-width:700px}
-.model ul{padding-left:20px;margin:10px 0 16px}
+
+/* Étapes */
+.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:0;margin:0 0 48px;max-width:900px}
+.steps li{counter-increment:s;border-top:4px solid var(--accent);padding-top:8px}
+.steps li::before{content:counter(s);font:800 40px/1 "Barlow Condensed",sans-serif;display:block}
+.steps strong{display:block;font:700 24px/1.1 "Barlow Condensed",sans-serif;margin-bottom:4px}
+.steps span{color:var(--muted);font-size:16px;line-height:1.45;display:block}
+
+/* Catalogue et sélection */
+.note{max-width:62ch;color:var(--muted);font-size:15px;margin:0 0 18px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
+.filters button{font:600 15px/1 Barlow,system-ui,sans-serif;padding:10px 16px;border:2px solid var(--ink);background:var(--surface);color:var(--ink);cursor:pointer;border-radius:2px}
+.filters button[aria-pressed="true"]{background:var(--btn);color:var(--btn-ink)}
+.chk{flex-direction:row;align-items:center;gap:8px;flex:0 0 auto;font-weight:400;margin:0 0 14px}
+.chk input{padding:0;width:18px;height:18px;accent-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.prod{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-left:8px solid var(--line);padding:18px 18px 20px}
+.prod.hit,.pick{border-color:var(--accent)}
+.prod h3{font-size:26px;line-height:1}
+.for{margin:0 0 6px;font:700 22px/1.05 "Barlow Condensed",sans-serif}
+.badge{margin:0 0 8px;font-weight:600;font-size:15px;color:var(--ink);background:color-mix(in srgb,var(--accent) 20%,var(--surface));padding:2px 8px;align-self:flex-start;border-radius:2px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0;padding:0}
+.tags span{font-size:14px;font-weight:600;border:1px solid var(--line);padding:2px 8px;border-radius:2px}
+.who,.warn,.why{font-size:16px;line-height:1.45;margin:12px 0 0}
+.warn{color:var(--muted)}
+.prod ul{padding-left:20px;margin:12px 0 0;color:var(--muted);font-size:16px;line-height:1.45}
+.prod .btn{margin-top:auto;align-self:flex-start}
+.prod .spacer{flex:1 1 auto;min-height:18px}
+.empty{color:var(--muted)}
+
 .uses{max-width:700px;border-top:1px solid var(--line)}
 .use{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .use p{margin:0;flex:1 1 300px}
 .use a{color:var(--ink);font-weight:600}
-footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:15px;color:var(--muted)}
+
+/* FAQ */
+.faq{max-width:700px;border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line);padding:14px 0}
+.faq summary{font:700 24px/1.1 "Barlow Condensed",sans-serif;cursor:pointer}
+.faq p{margin:8px 0 0;color:var(--muted);max-width:62ch}
+
+/* Barre d'aide à l'achat */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:2px solid var(--ink);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.bar[hidden]{display:none}
+.bar p{margin:0;font-weight:600}
+
+footer{border-top:1px solid var(--line);padding:24px 0 100px;font-size:15px;color:var(--muted)}
 footer p{max-width:70ch;margin:0 0 10px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media (prefers-reduced-motion:no-preference){.stripe{animation:slide 1.2s ease-out}@keyframes slide{from{background-position-x:-300px}}}
 </style>
 </head>
 <body>
 <div class="stripe" aria-hidden="true"></div>
-<header><div class="wrap"><span class="logo">LE GILET JUSTE</span><nav><a href="#criteres">Critères</a><a href="#modele">Modèle</a><a href="#usages">Usages</a></nav></div></header>
+<header><div class="wrap"><span class="logo">LE GILET JUSTE</span><nav><a href="#criteres">Critères</a><a href="#choix">Mon choix</a><a href="#catalogue">Catalogue</a><a href="#faq">Questions</a></nav></div></header>
 <main class="wrap">
 <h1>Le bon poids, le bon gilet.</h1>
-<p class="lead">Un gilet lesté trop léger ne sert à rien, trop lourd il abîme le dos. Entre ton poids et ton usage, on te dit quelle charge viser, puis on te montre où trouver des modèles sur Amazon.fr.</p>
+<p class="lead">Un gilet lesté trop léger ne sert à rien, trop lourd il abîme le dos. Entre ton poids et ton usage, on te dit quelle charge viser, puis on te montre 12 modèles disponibles sur Amazon.fr, avec leurs points forts et ce qu’il faut vérifier avant d’acheter.</p>
 
 <div class="tool">
 <h2>Quel poids pour ton gilet ?</h2>
@@ -61,9 +103,15 @@ footer p{max-width:70ch;margin:0 0 10px}
 <label>Ton usage<select id="use"><option value="marche">Marche</option><option value="course">Course à pied</option><option value="renfo">Renforcement</option></select></label>
 </div>
 <div id="out" aria-live="polite"></div>
-<a id="link" class="btn" data-q="gilet lesté réglable" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9">Voir des gilets réglables</a>
+<a id="link" class="btn" href="#catalogue">Voir les gilets adaptés</a>
 <p style="font-size:14px;color:var(--muted);margin:14px 0 0">Repères généraux, pas un avis médical. Commence par le bas de la fourchette.</p>
 </div>
+
+<ol class="steps" aria-label="Comment ça marche">
+<li><strong>Calcule ta charge</strong><span>Ton poids et ton usage donnent une fourchette de départ en kilos.</span></li>
+<li><strong>Compare les gilets</strong><span>Ceux qui tombent dans ta fourchette sont signalés et passent en premier.</span></li>
+<li><strong>Commande sur Amazon.fr</strong><span>Le prix, la livraison et les retours s’affichent sur la fiche Amazon, à jour.</span></li>
+</ol>
 
 <section id="criteres">
 <h2>Ce qui compte vraiment</h2>
@@ -75,17 +123,24 @@ footer p{max-width:70ch;margin:0 0 10px}
 </dl>
 </section>
 
-<section id="modele">
-<h2>Un modèle très populaire : ZELUS</h2>
-<div class="model">
-<p>Marque américaine très présente sur Amazon, souvent citée dans les gilets lestés devenus viraux sur TikTok.</p>
-<ul>
-<li>Lest en sable de fer réparti dans des poches</li>
-<li>Selon les versions, de 6 à 30 lb (environ 2,7 à 13,6 kg)</li>
-<li>Sangles à boucles réglables, bandes réfléchissantes</li>
-</ul>
-<a class="btn" data-q="ZELUS gilet lesté" href="https://www.amazon.fr/s?k=ZELUS+gilet+lest%C3%A9">Voir les gilets ZELUS sur Amazon.fr</a>
+<section id="choix">
+<h2>Mon choix selon ton profil</h2>
+<p class="note">Sélection établie d’après les caractéristiques indiquées sur les fiches Amazon.fr. Un seul gilet par situation, pour décider plus vite.</p>
+<div id="picks" class="picks"></div>
+</section>
+
+<section id="catalogue">
+<h2>Tous les gilets sélectionnés</h2>
+<p class="note">Choisis ton usage : les gilets dont le poids tombe dans ta fourchette sont signalés et passent en premier. Les prix et la disponibilité changent souvent, ils s’affichent à jour sur Amazon.fr.</p>
+<div class="filters" role="group" aria-label="Filtrer par usage">
+<button type="button" data-f="tous">Tous</button>
+<button type="button" data-f="marche">Marche</button>
+<button type="button" data-f="course">Course</button>
+<button type="button" data-f="renfo">Renforcement</button>
 </div>
+<label class="chk"><input type="checkbox" id="evo"> Seulement les gilets à lests amovibles</label>
+<p id="count" class="note" aria-live="polite"></p>
+<div id="grid" class="grid"></div>
 </section>
 
 <section id="usages">
@@ -96,7 +151,24 @@ footer p{max-width:70ch;margin:0 0 10px}
 <div class="use"><p><strong>Renforcement.</strong> Un gilet qui monte en charge, pour pompes, squats et tractions.</p><a data-q="gilet lesté musculation réglable" href="https://www.amazon.fr/s?k=gilet+lest%C3%A9+musculation">Voir les modèles</a></div>
 </div>
 </section>
+
+<section id="faq">
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Poids fixe ou lests amovibles ?</summary><p>Un gilet à poids fixe se choisit une fois pour toutes : c’est simple, mais il faudra en racheter un pour changer de charge. Avec des lests amovibles, tu ajoutes ou retires des sachets pour monter en charge petit à petit.</p></details>
+<details><summary>Quel poids choisir pour un premier gilet ?</summary><p>Utilise le calculateur en haut de page et pars du bas de la fourchette. Mieux vaut un gilet un peu trop léger qu’un gilet trop lourd qui te fait changer ta façon de bouger.</p></details>
+<details><summary>Peut-on courir avec un gilet lesté ?</summary><p>Oui, avec une charge faible (3 à 5 % de ton poids ici) et un gilet qui ne rebondit pas. Augmente la durée puis la charge progressivement, et arrête-toi si une douleur apparaît.</p></details>
+<details><summary>Comment choisir la bonne taille ?</summary><p>Compare ton tour de poitrine à la plage indiquée sur la fiche Amazon. Par exemple, le VEVOR 9,22 kg annonce un tour de poitrine de 89 à 114 cm. Le gilet doit être serré sans te gêner pour respirer.</p></details>
+<details><summary>Comment est financé ce site ?</summary><p>Les boutons « Voir le prix sur Amazon.fr » sont des liens affiliés : si tu achètes après avoir cliqué, je touche une petite commission, sans que tu paies plus cher.</p></details>
+<details><summary>Qui gère la livraison et les retours ?</summary><p>L’achat se fait sur Amazon.fr. La livraison et les retours dépendent d’Amazon et du vendeur indiqué sur la fiche : consulte leurs conditions avant de commander.</p></details>
+</div>
+</section>
 </main>
+
+<div id="bar" class="bar" hidden>
+<p id="barText"></p>
+<a class="btn" href="#catalogue">Voir les gilets</a>
+</div>
 
 <footer><div class="wrap">
 <p><strong>Transparence.</strong> En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises. Cela ne change pas le prix que tu paies.</p>
@@ -104,19 +176,149 @@ footer p{max-width:70ch;margin:0 0 10px}
 </div></footer>
 
 <script>
-// Remplace par ton identifiant Partenaires Amazon (ex. monsite-21)
+// Ton identifiant Partenaires Amazon
 const TAG="legiletjuste-21";
 const amz=q=>"https://www.amazon.fr/s?k="+encodeURIComponent(q)+"&tag="+TAG;
+const dp=asin=>"https://www.amazon.fr/dp/"+asin+"?tag="+TAG;
+
+// Liens de recherche affiliés (section « Choisir selon ton usage »)
 document.querySelectorAll("[data-q]").forEach(a=>{a.href=amz(a.dataset.q);a.rel="sponsored noopener";a.target="_blank"});
+
+/* ------------------------------------------------------------------
+   CATALOGUE
+   Pour ajouter un produit : copie un bloc, colle l’ASIN (les 10 caractères
+   après /dp/ dans l’URL Amazon.fr) et renseigne le poids min/max en kg.
+   type : "fixe" (un seul poids), "versions" (plusieurs poids au choix),
+          "amovible" (lests à retirer ou ajouter)
+   use  : "marche", "course", "renfo"
+   wl   : (facultatif) texte du poids affiché à la place de « min à max kg »
+   who  : pour qui   |   warn : le point à vérifier avant d’acheter
+------------------------------------------------------------------ */
+const PRODUCTS=[
+ {asin:"B09QSGQYLK",name:"Gilet néoprène 3 kg",min:3,max:3,type:"fixe",use:["marche","course"],
+  who:"Marche active et premières sorties en course.",
+  warn:"Poids fixe : trop léger si tu veux progresser en musculation.",
+  feats:["Poids fixe de 3 kg, rempli de sable","Néoprène élastique, profil fin qui se porte sous une veste","Boucle réglable et bretelles antidérapantes","Bandes réfléchissantes"]},
+ {asin:"B0G4VL2LNR",name:"Abahub 4,5 kg (10 lb)",min:4.5,max:4.5,type:"fixe",use:["marche","course"],
+  who:"Marche rapide, randonnée et course légère.",
+  warn:"Poids fixe d’environ 4,5 kg, vérifie le tour de poitrine sur la fiche.",
+  feats:["Poids fixe d’environ 4,5 kg","Remplissage en sable de fer, poids réparti uniformément","Fermeture éclair et tour de poitrine ajustable","Bandes réfléchissantes"]},
+ {asin:"B0DNSNM17F",name:"Amazon Basics 5,4 kg",min:5.4,max:5.4,type:"fixe",use:["marche","course","renfo"],
+  who:"Un premier gilet simple, sans réglage à faire.",
+  warn:"Non réglable : 5,4 kg, pas un de plus ni de moins.",
+  feats:["Poids fixe de 5,4 kg, sable de métal","Poche avant zippée amovible et poche arrière en filet","Bande réfléchissante"]},
+ {asin:"B0DZLZ2J95",name:"Sportneer 0,9 à 8 kg",min:0.9,max:8,wl:"0,9 à 8 kg",type:"amovible",use:["marche","course","renfo"],
+  who:"Débuter léger puis monter la charge sans racheter.",
+  warn:"Vérifie la matière et la plage de tour de poitrine sur la fiche.",
+  feats:["Poids réglable de 0,9 à 8 kg","Réglage rapide « 9 en 1 »","Pour homme et femme","Pensé pour la course à pied et le renforcement"]},
+ {asin:"B0D5H9NFJ8",name:"PROIRON lavable, 3 à 10 kg",min:3,max:10,type:"versions",use:["marche","course","renfo"],
+  who:"Ceux qui veulent un gilet lavable, sans sable qui fuit.",
+  warn:"Choisis la version (3, 5, 8 ou 10 kg) avant de commander.",
+  feats:["Versions de 3, 5, 8 ou 10 kg","Lest en fer souple (silicone) : pas de sable qui fuit","Lavable","Motifs et bandes réfléchissants"]},
+ {asin:"B09KM5GXR6",name:"Metal Boxe 8 kg",min:8,max:8,type:"fixe",use:["marche","renfo"],
+  who:"Renforcement et cardio avec une charge modérée.",
+  warn:"8 kg d’un coup : mieux vaut déjà avoir l’habitude du gilet.",
+  feats:["Poids fixe de 8 kg","Néoprène et PU","Sangles réglables sur la poitrine","Bandes réfléchissantes poitrine et dos"]},
+ {asin:"B08514XD63",name:"Goplus, 5,4 à 13,6 kg",min:5.4,max:13.6,type:"versions",use:["marche","renfo"],
+  who:"Choisir sa charge au départ parmi quatre versions.",
+  warn:"Chaque version est à poids fixe : changer de charge, c’est racheter.",
+  feats:["Versions de 5,4, 7,3, 9,1 ou 13,6 kg","Sable de fer noir, néoprène de 2,5 mm","Deux boucles réglables à l’avant","Bandes réfléchissantes sur les bretelles et le dos"]},
+ {asin:"B0DK16RX97",name:"VEVOR 9,22 kg",min:9.22,max:9.22,type:"fixe",use:["renfo"],
+  who:"Renforcement avec de la place pour ses affaires.",
+  warn:"Tour de poitrine de 89 à 114 cm : vérifie ta taille avant de commander.",
+  feats:["Poids fixe de 9,22 kg, granulés de fer","Poche avant amovible et poche arrière en filet","Épaules rembourrées","Plusieurs bandes réfléchissantes"]},
+ {asin:"B0DKFGF23S",name:"VEVOR 9 à 14,5 kg",min:9,max:14.5,type:"amovible",use:["renfo"],
+  who:"Monter en charge par paliers de 0,9 kg en musculation.",
+  warn:"Le gilet de base pèse déjà 9 kg : trop lourd pour débuter.",
+  feats:["Base de 9 kg, jusqu’à 14,5 kg","Six sacs de granulés de fer de 0,9 kg inclus","Néoprène respirant","Garnitures réfléchissantes"]},
+ {asin:"B0D9JB44ZH",name:"Leogreen 10 ou 20 kg",min:0.5,max:20,wl:"Jusqu’à 10 ou 20 kg",type:"amovible",use:["renfo"],
+  who:"Musculation et endurance avec un réglage fin.",
+  warn:"La version 20 kg est lourde pour un premier gilet.",
+  feats:["20 sacs de sable de fer détachables","Version 10 kg : ajustement de 0,5 à 10 kg, par 0,5 kg","Trois boucles et conception élastique","Tissu Oxford 600D, bande réfléchissante"]},
+ {asin:"B09QXGQNFC",name:"PROIRON 10 ou 20 kg",min:10,max:20,wl:"Versions 10 ou 20 kg",type:"amovible",use:["renfo"],
+  who:"Tractions, pompes et squats lestés.",
+  warn:"Dès 10 kg : pas pensé pour un premier gilet.",
+  feats:["Versions 10 kg ou 20 kg","20 packs de poids à retirer ou ajouter","Bande réfléchissante","Pensé pour la musculation et l’endurance"]},
+ {asin:"B0CSGD7B2Z",name:"Gorilla Sports 10, 20 ou 30 kg",min:5,max:30,wl:"5 à 30 kg",type:"amovible",use:["renfo"],
+  who:"Grosses charges et tractions lestées.",
+  warn:"Dès 10 kg : à réserver aux sportifs déjà à l’aise avec une charge.",
+  feats:["Versions 10, 20 ou 30 kg","Paliers de 0,5 kg (10 kg), 1 kg (20 kg) ou 1,5 kg (30 kg)","Livré avec un sac de transport","Fer, mousse TPE et nylon"]}
+];
+
+/* Sélection éditoriale : un gilet par situation */
+const PICKS=[
+ {label:"Pour débuter et progresser",asin:"B0DZLZ2J95",why:"Réglable dès 0,9 kg : tu démarres léger et tu montes la charge sans racheter."},
+ {label:"Pour courir léger",asin:"B09QSGQYLK",why:"3 kg seulement, un profil fin qui se porte sous une veste et des bandes réfléchissantes."},
+ {label:"Un premier gilet sans réglage",asin:"B0DNSNM17F",why:"5,4 kg fixes, deux poches de rangement et une bande réfléchissante. Rien à régler."},
+ {label:"Pour monter en charge en musculation",asin:"B0D9JB44ZH",why:"20 sacs de sable de fer à retirer ou ajouter, en version 10 ou 20 kg."}
+];
+
+const TYPES={fixe:"Poids fixe",versions:"Plusieurs poids au choix",amovible:"Lests amovibles"};
 const $=id=>document.getElementById(id);
 const R={marche:[.05,.10],course:[.03,.05],renfo:[.05,.10]};
 const f=n=>String(Math.round(n*2)/2).replace(".",",");
+const k=n=>String(n).replace(".",",");
+const byAsin=a=>PRODUCTS.find(p=>p.asin===a);
+let range=null, filter=$("use").value;
+
+const hit=p=>!!range&&p.max>=range[0]-.25&&p.min<=range[1]+.25;
+const weight=p=>p.wl||(p.min===p.max?k(p.min)+" kg":k(p.min)+" à "+k(p.max)+" kg");
+const cta=p=>'<a class="btn" href="'+dp(p.asin)+'" target="_blank" rel="sponsored noopener">Voir le prix sur Amazon.fr</a>';
+const tags=p=>'<p class="tags"><span>'+weight(p)+'</span><span>'+TYPES[p.type]+'</span></p>';
+
+function card(p){
+  const h=hit(p);
+  return '<article class="prod'+(h?' hit':'')+'">'
+    +(h?'<p class="badge">Dans ta fourchette</p>':'')
+    +'<h3>'+p.name+'</h3>'+tags(p)
+    +'<p class="who"><strong>Pour qui :</strong> '+p.who+'</p>'
+    +'<ul>'+p.feats.map(x=>'<li>'+x+'</li>').join("")+'</ul>'
+    +'<p class="warn"><strong>À savoir :</strong> '+p.warn+'</p>'
+    +'<div class="spacer"></div>'+cta(p)
+    +'</article>';
+}
+
+function pick(x){
+  const p=byAsin(x.asin);
+  return '<article class="prod pick"><p class="for">'+x.label+'</p><h3>'+p.name+'</h3>'+tags(p)
+    +'<p class="why">'+x.why+'</p><div class="spacer"></div>'+cta(p)+'</article>';
+}
+
+function render(){
+  document.querySelectorAll(".filters button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.f===filter)));
+  const evo=$("evo").checked;
+  const list=PRODUCTS.filter(p=>(filter==="tous"||p.use.includes(filter))&&(!evo||p.type==="amovible")).sort((a,b)=>hit(b)-hit(a));
+  $("count").textContent=list.length+(list.length>1?" gilets":" gilet");
+  $("grid").innerHTML=list.length?list.map(card).join(""):'<p class="empty">Aucun gilet ne correspond à ces filtres. Décoche « lests amovibles » ou change d’usage.</p>';
+}
+
 function calc(){
   const w=parseFloat($("kg").value),r=R[$("use").value];
-  if(!(w>=30&&w<=250)){$("out").textContent="Entre un poids entre 30 et 250 kg.";return}
-  $("out").innerHTML="Vise <strong>"+f(w*r[0])+" à "+f(w*r[1])+" kg</strong>.";
+  if(!(w>=30&&w<=250)){range=null;$("out").textContent="Entre un poids entre 30 et 250 kg.";render();syncBar();return}
+  range=[w*r[0],w*r[1]];
+  $("out").innerHTML="Vise <strong>"+f(range[0])+" à "+f(range[1])+" kg</strong>.";
+  $("barText").textContent="Ta fourchette : "+f(range[0])+" à "+f(range[1])+" kg";
+  render();syncBar();
 }
-$("kg").addEventListener("input",calc);$("use").addEventListener("change",calc);calc();
+
+/* Barre d’aide : visible quand le calculateur est sorti de l’écran et que le catalogue n’y est pas encore */
+let toolOut=false, catIn=false;
+function syncBar(){$("bar").hidden=!(range&&toolOut&&!catIn)}
+if("IntersectionObserver" in window){
+  new IntersectionObserver(e=>{toolOut=!e[0].isIntersecting;syncBar()}).observe(document.querySelector(".tool"));
+  new IntersectionObserver(e=>{catIn=e[0].isIntersecting;syncBar()}).observe($("catalogue"));
+}
+
+$("picks").innerHTML=PICKS.map(pick).join("");
+$("kg").addEventListener("input",calc);
+$("use").addEventListener("change",()=>{filter=$("use").value;calc()});
+$("evo").addEventListener("change",render);
+document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{
+  filter=b.dataset.f;
+  if(filter!=="tous")$("use").value=filter;
+  calc();
+}));
+calc();
 </script>
 </body>
 </html>
