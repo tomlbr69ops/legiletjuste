@@ -238,6 +238,26 @@
         "Livré avec un sac de transport",
         "Fer, mousse TPE et nylon"
       ]
+    },
+    {
+      "asin": "B0D4LG4P82",
+      "name": "Leogreen Weighted Vest 22kg/20kg, Adjustable Weighted Vest with 20 Removable Weight Packs, Reflective Strip, for Men Women Running, Strength and Endurance Training",
+      "min": 10,
+      "max": 22,
+      "type": "amovible",
+      "use": [
+        "marche",
+        "course",
+        "renfo"
+      ],
+      "who": "Pour les hommes et femmes pratiquant le fitness, le jogging ou la musculation.",
+      "warn": "Assurez-vous de choisir le poids adapté parmi les options réglables.",
+      "feats": [
+        "Poids ajustable grâce à 20 packs amovibles",
+        "Bretelles larges pour un confort accru et moins de frottement",
+        "Tissu Oxford 600D respirant et facile d'entretien",
+        "Dispose d'une bande réfléchissante"
+      ]
     }
   ],
   "picks": [
