@@ -1,0 +1,265 @@
+{
+  "products": [
+    {
+      "asin": "B09QSGQYLK",
+      "img": "images/gilet-neoprene-3kg.jpg",
+      "name": "Gilet néoprène 3 kg",
+      "min": 3,
+      "max": 3,
+      "type": "fixe",
+      "use": [
+        "marche",
+        "course"
+      ],
+      "who": "Marche active et premières sorties en course.",
+      "warn": "Poids fixe : trop léger si tu veux progresser en musculation.",
+      "feats": [
+        "Poids fixe de 3 kg, rempli de sable",
+        "Néoprène élastique, profil fin qui se porte sous une veste",
+        "Boucle réglable et bretelles antidérapantes",
+        "Bandes réfléchissantes"
+      ]
+    },
+    {
+      "asin": "B0G4VL2LNR",
+      "img": "images/abahub.jpg",
+      "name": "Abahub 4,5 kg (10 lb)",
+      "min": 4.5,
+      "max": 4.5,
+      "type": "fixe",
+      "use": [
+        "marche",
+        "course"
+      ],
+      "who": "Marche rapide, randonnée et course légère.",
+      "warn": "Poids fixe d’environ 4,5 kg, vérifie le tour de poitrine sur la fiche.",
+      "feats": [
+        "Poids fixe d’environ 4,5 kg",
+        "Remplissage en sable de fer, poids réparti uniformément",
+        "Fermeture éclair et tour de poitrine ajustable",
+        "Bandes réfléchissantes"
+      ]
+    },
+    {
+      "asin": "B0DNSNM17F",
+      "img": "images/amazon-basics.jpg",
+      "name": "Amazon Basics 5,4 kg",
+      "min": 5.4,
+      "max": 5.4,
+      "type": "fixe",
+      "use": [
+        "marche",
+        "course",
+        "renfo"
+      ],
+      "who": "Un premier gilet simple, sans réglage à faire.",
+      "warn": "Non réglable : 5,4 kg, pas un de plus ni de moins.",
+      "feats": [
+        "Poids fixe de 5,4 kg, sable de métal",
+        "Poche avant zippée amovible et poche arrière en filet",
+        "Bande réfléchissante"
+      ]
+    },
+    {
+      "asin": "B0DZLZ2J95",
+      "img": "images/sportneer.jpg",
+      "name": "Sportneer 0,9 à 8 kg",
+      "min": 0.9,
+      "max": 8,
+      "wl": "0,9 à 8 kg",
+      "type": "amovible",
+      "use": [
+        "marche",
+        "course",
+        "renfo"
+      ],
+      "who": "Débuter léger puis monter la charge sans racheter.",
+      "warn": "Vérifie la matière et la plage de tour de poitrine sur la fiche.",
+      "feats": [
+        "Poids réglable de 0,9 à 8 kg",
+        "Réglage rapide « 9 en 1 »",
+        "Pour homme et femme",
+        "Pensé pour la course à pied et le renforcement"
+      ]
+    },
+    {
+      "asin": "B0D5H9NFJ8",
+      "img": "images/proiron-lavable.jpg",
+      "name": "PROIRON lavable, 3 à 10 kg",
+      "min": 3,
+      "max": 10,
+      "type": "versions",
+      "use": [
+        "marche",
+        "course",
+        "renfo"
+      ],
+      "who": "Ceux qui veulent un gilet lavable, sans sable qui fuit.",
+      "warn": "Choisis la version (3, 5, 8 ou 10 kg) avant de commander.",
+      "feats": [
+        "Versions de 3, 5, 8 ou 10 kg",
+        "Lest en fer souple (silicone) : pas de sable qui fuit",
+        "Lavable",
+        "Motifs et bandes réfléchissants"
+      ]
+    },
+    {
+      "asin": "B09KM5GXR6",
+      "img": "images/metal-boxe.jpg",
+      "name": "Metal Boxe 8 kg",
+      "min": 8,
+      "max": 8,
+      "type": "fixe",
+      "use": [
+        "marche",
+        "renfo"
+      ],
+      "who": "Renforcement et cardio avec une charge modérée.",
+      "warn": "8 kg d’un coup : mieux vaut déjà avoir l’habitude du gilet.",
+      "feats": [
+        "Poids fixe de 8 kg",
+        "Néoprène et PU",
+        "Sangles réglables sur la poitrine",
+        "Bandes réfléchissantes poitrine et dos"
+      ]
+    },
+    {
+      "asin": "B08514XD63",
+      "img": "images/goplus.jpg",
+      "name": "Goplus, 5,4 à 13,6 kg",
+      "min": 5.4,
+      "max": 13.6,
+      "type": "versions",
+      "use": [
+        "marche",
+        "renfo"
+      ],
+      "who": "Choisir sa charge au départ parmi quatre versions.",
+      "warn": "Chaque version est à poids fixe : changer de charge, c’est racheter.",
+      "feats": [
+        "Versions de 5,4, 7,3, 9,1 ou 13,6 kg",
+        "Sable de fer noir, néoprène de 2,5 mm",
+        "Deux boucles réglables à l’avant",
+        "Bandes réfléchissantes sur les bretelles et le dos"
+      ]
+    },
+    {
+      "asin": "B0DK16RX97",
+      "name": "VEVOR 9,22 kg",
+      "min": 9.22,
+      "max": 9.22,
+      "type": "fixe",
+      "use": [
+        "renfo"
+      ],
+      "who": "Renforcement avec de la place pour ses affaires.",
+      "warn": "Tour de poitrine de 89 à 114 cm : vérifie ta taille avant de commander.",
+      "feats": [
+        "Poids fixe de 9,22 kg, granulés de fer",
+        "Poche avant amovible et poche arrière en filet",
+        "Épaules rembourrées",
+        "Plusieurs bandes réfléchissantes"
+      ]
+    },
+    {
+      "asin": "B0DKFGF23S",
+      "name": "VEVOR 9 à 14,5 kg",
+      "min": 9,
+      "max": 14.5,
+      "type": "amovible",
+      "use": [
+        "renfo"
+      ],
+      "who": "Monter en charge par paliers de 0,9 kg en musculation.",
+      "warn": "Le gilet de base pèse déjà 9 kg : trop lourd pour débuter.",
+      "feats": [
+        "Base de 9 kg, jusqu’à 14,5 kg",
+        "Six sacs de granulés de fer de 0,9 kg inclus",
+        "Néoprène respirant",
+        "Garnitures réfléchissantes"
+      ]
+    },
+    {
+      "asin": "B0D9JB44ZH",
+      "img": "images/leogreen.jpg",
+      "name": "Leogreen 10 ou 20 kg",
+      "min": 0.5,
+      "max": 20,
+      "wl": "Jusqu’à 10 ou 20 kg",
+      "type": "amovible",
+      "use": [
+        "renfo"
+      ],
+      "who": "Musculation et endurance avec un réglage fin.",
+      "warn": "La version 20 kg est lourde pour un premier gilet.",
+      "feats": [
+        "20 sacs de sable de fer détachables",
+        "Version 10 kg : ajustement de 0,5 à 10 kg, par 0,5 kg",
+        "Trois boucles et conception élastique",
+        "Tissu Oxford 600D, bande réfléchissante"
+      ]
+    },
+    {
+      "asin": "B09QXGQNFC",
+      "img": "images/proiron-10-20kg.jpg",
+      "name": "PROIRON 10 ou 20 kg",
+      "min": 10,
+      "max": 20,
+      "wl": "Versions 10 ou 20 kg",
+      "type": "amovible",
+      "use": [
+        "renfo"
+      ],
+      "who": "Tractions, pompes et squats lestés.",
+      "warn": "Dès 10 kg : pas pensé pour un premier gilet.",
+      "feats": [
+        "Versions 10 kg ou 20 kg",
+        "20 packs de poids à retirer ou ajouter",
+        "Bande réfléchissante",
+        "Pensé pour la musculation et l’endurance"
+      ]
+    },
+    {
+      "asin": "B0CSGD7B2Z",
+      "img": "images/gorilla-sports.jpg",
+      "name": "Gorilla Sports 10, 20 ou 30 kg",
+      "min": 5,
+      "max": 30,
+      "wl": "5 à 30 kg",
+      "type": "amovible",
+      "use": [
+        "renfo"
+      ],
+      "who": "Grosses charges et tractions lestées.",
+      "warn": "Dès 10 kg : à réserver aux sportifs déjà à l’aise avec une charge.",
+      "feats": [
+        "Versions 10, 20 ou 30 kg",
+        "Paliers de 0,5 kg (10 kg), 1 kg (20 kg) ou 1,5 kg (30 kg)",
+        "Livré avec un sac de transport",
+        "Fer, mousse TPE et nylon"
+      ]
+    }
+  ],
+  "picks": [
+    {
+      "label": "Pour débuter et progresser",
+      "asin": "B0DZLZ2J95",
+      "why": "Réglable dès 0,9 kg : tu démarres léger et tu montes la charge sans racheter."
+    },
+    {
+      "label": "Pour courir léger",
+      "asin": "B09QSGQYLK",
+      "why": "3 kg seulement, un profil fin qui se porte sous une veste et des bandes réfléchissantes."
+    },
+    {
+      "label": "Un premier gilet sans réglage",
+      "asin": "B0DNSNM17F",
+      "why": "5,4 kg fixes, deux poches de rangement et une bande réfléchissante. Rien à régler."
+    },
+    {
+      "label": "Pour monter en charge en musculation",
+      "asin": "B0D9JB44ZH",
+      "why": "20 sacs de sable de fer à retirer ou ajouter, en version 10 ou 20 kg."
+    }
+  ]
+}
