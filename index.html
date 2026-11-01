@@ -151,12 +151,14 @@ footer a{color:var(--hero-ink)}
 .prod:has(input:checked){outline:3px solid var(--accent);outline-offset:-3px}
 .ast:not([hidden]){animation:up .25s ease}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1}.rv.in,.ast:not([hidden]){animation:none}.btn:active,.prod:active{transform:none}}
+.gear h3{font:700 24px/1.1 "Barlow Condensed",sans-serif;margin:0 0 8px}.gear p{margin:0 0 8px}
+.pimg.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;background:var(--bg);border:1px dashed var(--line);font:700 22px "Barlow Condensed",sans-serif;color:var(--muted)}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vest" viewBox="0 0 64 64"><path style="fill:var(--vb,#1B2A41)" d="M20 6H26L32 16L38 6H44L52 14L48 24V58H16V24L12 14Z"/><g style="fill:var(--accent)"><rect x="19" y="31" width="11" height="10" rx="1"/><rect x="34" y="31" width="11" height="10" rx="1"/><rect x="19" y="45" width="11" height="10" rx="1"/><rect x="34" y="45" width="11" height="10" rx="1"/></g><rect x="16" y="26" width="32" height="2.5" opacity=".9" style="fill:var(--vs,#fff)"/></symbol></svg>
 <div class="stripe" aria-hidden="true"></div>
-<header><div class="wrap"><span class="logo">LE GILET JUSTE</span><nav><a href="#criteres">Critères</a><a href="#choix">Mon choix</a><a href="#catalogue">Catalogue</a><a href="#faq">Questions</a><button id="th" class="thb" type="button" aria-label="Changer de thème clair ou sombre">◐</button></nav></div></header>
+<header><div class="wrap"><span class="logo">LE GILET JUSTE</span><nav><a href="#criteres">Critères</a><a href="#choix">Mon choix</a><a href="#catalogue">Catalogue</a><a href="#equipement">Équipement</a><a href="#faq">Questions</a><button id="th" class="thb" type="button" aria-label="Changer de thème clair ou sombre">◐</button></nav></div></header>
 <div class="promo"><div class="wrap">Black Friday le 27 novembre, puis Noël : les prix bougent vite. <a href="#choix">Voir ma sélection</a></div></div>
 <div class="hero" data-img="images/hero.jpg|images/hero.jpg.jpg"><div class="wrap hero-in"><div class="hero-copy">
 <h1>Le bon poids, le bon gilet.</h1>
@@ -219,6 +221,12 @@ footer a{color:var(--hero-ink)}
 <p id="count" class="note" aria-live="polite"></p>
 <div id="cmp"></div>
 <div id="grid" class="grid"></div>
+</section>
+
+<section id="equipement">
+<h2>Compléter son équipement</h2>
+<p class="note">Ces catégories vont bien avec un gilet lesté. Je n’ai pas testé les produits : voici les critères à regarder et ce qu’il faut vérifier. Les boutons ouvrent une recherche sur Amazon.fr, pour que tu compares les modèles du moment.</p>
+<div id="gear" class="grid gear"></div>
 </section>
 
 <section id="plan"></section>
@@ -462,6 +470,7 @@ const KB=[
  {k:["prix","cher","budget","promo","black friday","soldes","reduction"],a:()=>"Je n’affiche pas de prix : ils changent souvent. Clique sur « Voir le prix sur Amazon.fr » pour voir le prix et les promotions du moment."},
  {k:["douleur","dos","genou","enceinte","cardiaque","medecin","blessure","sante"],a:()=>"Avec une douleur, une blessure, une grossesse ou un souci cardiaque, demande l’avis d’un médecin avant d’utiliser un gilet lesté. Je ne peux pas te le dire à sa place."},
  {k:["sable","lest","amovible","fixe","regla"],a:()=>"Un gilet à poids fixe est simple mais il faut en racheter un pour changer de charge. Avec des lests amovibles, tu montes en charge petit à petit. Filtre le "+'<a href="#catalogue">catalogue</a>'+" sur « lests amovibles »."},
+ {k:["elastique","chaussure","basket","montre","tapis","halter","gourde","equipement","accessoire"],a:()=>"Je te donne les critères à regarder pour les élastiques, chaussures, montres et autres accessoires dans la section <a href=\"#equipement\">Compléter son équipement</a>."},
  {k:["affili","commission","gratuit","financ","sponsor","avis"],a:()=>"Ce site est financé par les liens affiliés : si tu achètes après un clic, je touche une petite commission, sans que tu paies plus cher. Je n’ai pas testé les gilets moi-même, mes notes viennent des fiches Amazon."}
 ];
 function answer(q){const n=norm(q);let b=null,m=0;
@@ -477,6 +486,21 @@ $("astBtn").addEventListener("click",()=>astOpen(true));$("astX").addEventListen
 $("astGo").addEventListener("click",()=>ask($("astQ").value));
 $("astQ").addEventListener("keydown",e=>{if(e.key==="Enter")ask($("astQ").value)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("ast").hidden)astOpen(false)});
+/* Équipement complémentaire : critères + recherche Amazon.fr */
+const gl=q=>"https://www.amazon.fr/s?k="+encodeURIComponent(q)+"&tag="+TAG;
+const GEAR=[
+["Élastiques de résistance","Pour le renforcement à la maison et l’échauffement.","Plusieurs niveaux de résistance, matière (latex ou tissu), poignées ou ancrage de porte.","L’odeur, la durabilité dans les avis, l’allergie au latex.","élastiques de résistance fitness"],
+["Chaussures de marche","Pour marcher longtemps, avec ou sans gilet lesté.","Amorti, semelle qui accroche, tissu respirant, bon maintien du pied.","La taille (grandes ou petites selon les avis) et les conditions de retour.","chaussures de marche"],
+["Chaussures de running","Pour courir sur route ou en chemin.","Amorti, usage route ou trail, largeur adaptée à ton pied.","La pointure, et le type de sol pour lequel elles sont faites.","chaussures de running"],
+["Montre de sport connectée","Pour suivre tes séances, ta distance et ton rythme cardiaque.","GPS, cardio au poignet, autonomie, compatibilité avec ton téléphone.","L’autonomie réelle, la précision du cardio, les fonctions qui demandent un abonnement.","montre connectée sport GPS"],
+["Tapis de sol","Pour les exercices au sol, les pompes et les étirements.","Épaisseur, surface antidérapante, longueur suffisante.","L’odeur à la livraison et l’épaisseur réelle annoncée.","tapis de sol fitness"],
+["Haltères réglables","Pour monter en charge sans acheter plusieurs paires.","Plage de poids, système de réglage, encombrement.","La solidité du verrouillage et le poids réellement livré.","haltères réglables"],
+["Gourde isotherme","Pour boire pendant la marche ou la séance.","Capacité, isolation, étanchéité du bouchon.","L’étanchéité en sac et le goût dans les avis.","gourde sport isotherme"],
+["Sac à dos léger","Pour porter tes affaires en marchant ou en courant.","Capacité de 10 à 20 L, sangles rembourrées, ceinture de maintien.","Le confort avec un gilet lesté et la résistance des coutures.","sac à dos léger randonnée"]];
+const GSLUG=["elastiques","chaussures-marche","chaussures-running","montre","tapis","halteres","gourde","sac-a-dos"];
+function gearFail(el){const l=(el.dataset.n||"").split("|").filter(Boolean),n=l.shift();if(n){el.dataset.n=l.join("|");el.src=n;return}el.outerHTML='<div class="pimg ph">'+el.alt+'</div>'}
+$("gear").innerHTML=GEAR.map((g,i)=>'<article class="prod"><img class="pimg" src="images/'+GSLUG[i]+'.jpg" data-n="images/'+GSLUG[i]+'.png|images/'+GSLUG[i]+'.webp" alt="'+g[0]+'" loading="lazy" onerror="gearFail(this)"><h3>'+g[0]+'</h3><p>'+g[1]+'</p><p><strong>À regarder :</strong> '+g[2]+'</p><p class="warn"><strong>À vérifier :</strong> '+g[3]+'</p><div class="spacer"></div><a class="btn" href="'+gl(g[4])+'" target="_blank" rel="sponsored noopener">Voir sur Amazon.fr</a></article>').join("");
+
 /* Apparition au défilement */
 const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15}):null;
 function watch(){document.querySelectorAll(".prod:not(.rv),.steps li:not(.rv),section>h2:not(.rv)").forEach((el,i)=>{el.classList.add("rv");el.style.setProperty("--d",(i%3)*.08+"s");io?io.observe(el):el.classList.add("in")})}
